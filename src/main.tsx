@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, About, Post, Posts } from "./routes";
+import { Home, About, Post, Posts, postsLoader, postLoader } from "./routes";
 import { BlogLayout, RootLayout } from "./layouts";
 
 const router = createBrowserRouter([
@@ -25,10 +25,12 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Posts />,
+            loader: postsLoader,
           },
           {
             path: ":postId",
             element: <Post />,
+            loader: postLoader,
           },
         ],
       },
